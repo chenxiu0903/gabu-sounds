@@ -1,0 +1,59 @@
+//- vars
+block vars
+doctype html
+head
+    meta(name="viewport" content='width=750,user-scalable=yes')
+    meta(name="format-detection", content="telephone=no")
+    meta(name="SKYPE_TOOLBAR", content="SKYPE_TOOLBAR_PARSER_COMPATIBLE")
+html(lang='ja')
+    head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# " + pageOgpType + ": http://ogp.me/ns/" + pageOgpType + "#")
+        title こんとら〜
+
+        //- CSS Setting
+        link(rel='stylesheet', href="./css/style.css?v=201903-01")
+        block link
+
+    body#g(class=bodyClass)
+        script
+            | var isPC = true;
+            | (function () { if (navigator.userAgent.toLowerCase().match(/iphone|ipad|android/)) { document.body.classList.add('sp');isPC=false;return; } document.body.classList .add('pc'); })();
+        //block body        
+
+        #wrapper
+            main.mainContent
+                h1 こんとら〜
+                p.desc_top
+                    a(href="https://www.youtube.com/@YahooTWtaigatorako", target="_blank") 大合虎子ちゃん
+                    |が喋ってくれるよ。
+                    br
+                    |音量には注意してね。
+                .singleButtonWrapper
+                    .button_wrapper#singleButtonWrapper
+                    .content
+                        p
+                            a(href="/hanarisa-button/") 一覧に戻る
+                .multiButtonWrapper
+                    .movie_wrapper
+                        h2.movie_title
+                            a(href="https://www.youtube.com/live/ZRRv-MoaH88", target="_blank") 【虎雑】一起看被惡意剪輯（官方）的精華🤣　中/日 ok 【Torakolive】
+                        .button_wrapper
+                            .button.button-play.cat-c(data-voice="ZRRv-MoaH88-42m56s") 你來舔一下我的腳                            
+                    .movie_wrapper
+                        h2.movie_title
+                            a(href="https://www.youtube.com/watch?v=w-M5c-F-HmM", target="_blank") 【縱配信】ASMR風雑談 哄睡＆輕聲細語
+                        .button_wrapper
+                            .button.button-play(data-voice="w-M5c-F-HmM-1h38m50s") 大好~                            
+            .mainFooter
+                .credit
+                    p 音声等の権利は、全て元権利者に帰属します。
+                    p 音声以外の部分については、<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" target="_blank">CC-BY-NC-SA-4.0</a>に基づき自由にご利用ください。<br>
+                        |ソースコードは<a href="https://github.com/niltea/hanarisa-button" target="_blank">こちら</a>。<br>
+
+    script(src='./js/app.js')
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-115478883-6"></script>
+    script
+        |window.dataLayer = window.dataLayer || [];
+        |function gtag(){dataLayer.push(arguments);}
+        |gtag('js', new Date());
+        |gtag('config', 'UA-115478883-6');
+    script(async, src="https://platform.twitter.com/widgets.js", charset="utf-8")
