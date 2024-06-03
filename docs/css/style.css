@@ -56,7 +56,7 @@ table {
   min-height: 100vh;
   line-height: 1.7em;
   font-family: sans-serif;
-  background-color: #92cbff; }
+  background-color: #b8dbfc; }
 
 .mainContent {
   flex: 1;
@@ -87,7 +87,7 @@ h1 {
   cursor: pointer;
   color: #413f1f;
   border: 1px solid #413f1f;
-  background-color: #bee0f9;
+  background-color: #F8F7FC;
   border-radius: 5px;
   text-align: center; }
   .button-play.cat-c {
