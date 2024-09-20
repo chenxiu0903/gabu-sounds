@@ -19,6 +19,7 @@
 	<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# undefined: http://ogp.me/ns/undefined#">
 		<title>こんがブ〜</title>
 		<link rel="stylesheet" href="./css/style.css?v=201903-01">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 	</head>
 	<body id="g">
 		<script>
@@ -35,6 +36,14 @@
 					<div class="content">
 						<p><a id="audio_link" href="#">Download</a></p>
 						<p><a href="/gabu-sounds/">一覧に戻る</a></p>
+					</div>
+				</div>
+				<div class="tab_css">
+					<div class="tab_content">
+						<div class="search">
+							<span class="searchbar-icon"><i class="fas fa-search"></i></span>
+							<input type="text" id="searchBar" onkeyup="searchByKeywords()" placeholder="">
+						</div>
 					</div>
 				</div>
 				<div class="multiButtonWrapper">
@@ -490,9 +499,54 @@
 	<script src="./js/app.js"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-		gtag('config', 'UA-115478883-6');
+		function searchByKeywords() {
+    var input = document.getElementById('searchBar');
+    var inputUpper = input.value.toUpperCase();
+    var streams = document.querySelectorAll(".movie_wrapper");
+    if (input.value == "") {
+        showAllButtons()
+    } else {
+        streams.forEach(stream => {
+            items = stream.querySelectorAll(".button-play");
+            var isBlockHide = true;
+            var itemCount = 0;
+            items.forEach(item => {
+                var txtValue = item.innerText;
+                if (txtValue.toUpperCase().indexOf(inputUpper) > -1) {
+                    if (window.screen.width >= 1300) {
+                        if (itemCount % 3 == 0) {
+                            item.style.marginLeft = "0";
+                        } else {
+                            item.style.marginLeft = "2%";
+                        }
+                    }
+                    item.style.display = "";
+                    isBlockHide = false;
+                    itemCount++;
+                } else {
+                    item.style.display = "none";
+                }
+            })
+            if (isBlockHide) {
+                stream.style.display = "none";
+            } else
+                stream.style.display = "";
+        })
+    }
+}
+
+function showAllButtons() {
+    var streams = document.querySelectorAll(".movie_wrapper");
+    streams.forEach(stream => {
+        stream.style.display = "";
+    })
+
+    var items = document.querySelectorAll(".button-play");
+    items.forEach(item => {
+        item.style.marginLeft = "";
+        item.style.display = "";
+    })
+}
 	</script>
 	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </html>
